@@ -1,0 +1,10 @@
+    <app-chat-list-elem *ngFor="let chat of chats"
+      [name]="chat.contact.name != 'Unknown' ? chat.contact.name : chat.contact.phone_number "
+      [online]="chat.last_read_message_timestamp === null"
+      [selected]="selectedId === chat.id"
+      lastMessage=""
+      (click)="selectConversation(chat.id)">
+    </app-chat-list-elem>
+
+    <button class="add"></button>
+    <div class="overlay"></div>

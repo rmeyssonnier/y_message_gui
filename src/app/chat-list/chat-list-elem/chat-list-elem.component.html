@@ -1,0 +1,11 @@
+<div class="msg {{ online ? 'online' : ''}} {{ selected ? 'active' : ''}}">
+<!--    <img class="msg-profile" src="{{ profileImage }}" alt="" />-->
+  <ngx-avatar class="msg-profile" [name]="name"></ngx-avatar>
+  <div class="msg-detail">
+        <div class="msg-username">{{ name }}</div>
+        <div class="msg-content">
+        <span class="msg-message">{{ lastMessage }}</span>
+        <span class="msg-date">{{ lastMessageDate | date:'mm' }}m</span>
+        </div>
+    </div>
+</div>

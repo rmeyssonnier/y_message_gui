@@ -1,0 +1,17 @@
+<div class="chat-msg {{ message.is_from_me ? 'owner' : ''}}">
+  <div class="chat-msg-profile">
+<!--    <img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">-->
+    <ngx-avatar class="chat-msg-img" *ngIf="!message.is_from_me" [name]="contact.name"></ngx-avatar>
+    <ngx-avatar class="chat-msg-img" *ngIf="message.is_from_me" [name]="'M e'"></ngx-avatar>
+    <div class="chat-msg-date">{{ message.date }}</div>
+  </div>
+  <div class="chat-msg-content">
+    <div class="chat-msg-text" *ngIf="message.text && message.text.length > 0 && message.text.charCodeAt(0) !== 65532">{{ message.text }}</div>
+    <ng-container *ngIf="message.has_attachment">
+      <div class="chat-msg-text" *ngFor="let attachment of message.attachments">
+        <img [src]="getMedia(attachment)" />
+      </div>
+    </ng-container>
+
+  </div>
+</div>
